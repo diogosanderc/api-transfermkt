@@ -16,11 +16,17 @@ app.get('/', (req, res) => {
       { method: 'GET', path: '/api/teams/search?q={nome}', description: 'Buscar times pelo nome' },
       { method: 'GET', path: '/api/teams/{slug}/{id}/squad', description: 'Plantel completo do time' },
       { method: 'GET', path: '/api/players/{slug}/{id}', description: 'Detalhes de um jogador' },
+      { method: 'GET', path: '/api/leagues', description: 'Ligas pré-configuradas disponíveis' },
+      { method: 'GET', path: '/api/leagues/{key}/teams', description: 'Todos os times de uma liga' },
+      { method: 'GET', path: '/api/leagues/{key}/squads', description: 'Plantel de TODOS os times da liga (demora ~5min)' },
     ],
     examples: [
       '/api/teams/search?q=Flamengo',
       '/api/teams/flamengo/11517/squad',
       '/api/players/pedro/146747',
+      '/api/leagues',
+      '/api/leagues/brasileirao-serie-a/teams',
+      '/api/leagues/brasileirao-serie-a/squads',
     ],
   });
 });
