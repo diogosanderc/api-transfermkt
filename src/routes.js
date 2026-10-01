@@ -51,6 +51,34 @@ router.get('/players/:slug/:id', async (req, res) => {
 });
 
 /**
+ * GET /debug/html?url=...
+ * Retorna trecho do HTML de uma URL para diagnóstico
+ */
+router.get('/debug/html', async (req, res) => {
+  const { fetchPage } = require('./browser');
+  const cheerio = require('cheerio');
+  const url = req.query.url;
+  if (!url) return res.status(400).json({ error: 'Parâmetro url obrigatório' });
+  try {
+    const html = await fetchPage(url);
+    const $ = cheerio.load(html);
+    const tables = [];
+    $('table').each((i, el) => {
+      tables.push({
+        index: i,
+        class: $(el).attr('class') || '',
+        id: $(el).attr('id') || '',
+        rows: $(el).find('tr').length,
+        first_row_html: $(el).find('tr').first().html()?.substring(0, 300) || '',
+      });
+    });
+    res.json({ url, total_tables: tables.length, tables });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/**
  * GET /leagues
  * Lista ligas pré-configuradas
  */
