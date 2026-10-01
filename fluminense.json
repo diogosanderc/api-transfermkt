@@ -1,0 +1,246 @@
+{
+ "time": "Fluminense",
+ "cambio_eur_brl": 5.87,
+ "elenco": [
+  {
+   "nome": "Marcelo Pitaluga",
+   "idade": 23,
+   "posicao": "GK",
+   "nacionalidade": "Brazil",
+   "valor_eur": 900000,
+   "valor_brl": 5283000
+  },
+  {
+   "nome": "Vitor Eudes",
+   "idade": 27,
+   "posicao": "GK",
+   "nacionalidade": "Brazil",
+   "valor_eur": 500000,
+   "valor_brl": 2935000
+  },
+  {
+   "nome": "Fábio",
+   "idade": 46,
+   "posicao": "GK",
+   "nacionalidade": "Brazil",
+   "valor_eur": 1100000,
+   "valor_brl": 6457000
+  },
+  {
+   "nome": "Guga",
+   "idade": 28,
+   "posicao": "D (R)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 1500000,
+   "valor_brl": 8805000
+  },
+  {
+   "nome": "Igor Rabello",
+   "idade": 31,
+   "posicao": "D (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 1100000,
+   "valor_brl": 6457000
+  },
+  {
+   "nome": "Juan Pablo Freytes",
+   "idade": 26,
+   "posicao": "D (C)",
+   "nacionalidade": "Argentina",
+   "valor_eur": 4400000,
+   "valor_brl": 25828000
+  },
+  {
+   "nome": "Julián Millán",
+   "idade": 28,
+   "posicao": "D (C)",
+   "nacionalidade": "Colombia",
+   "valor_eur": 2100000,
+   "valor_brl": 12327000
+  },
+  {
+   "nome": "Léo Jance",
+   "idade": 21,
+   "posicao": "D (L)",
+   "nacionalidade": "Brazil",
+   "valor_eur": null,
+   "valor_brl": null
+  },
+  {
+   "nome": "Renê",
+   "idade": 34,
+   "posicao": "D (L)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 800000,
+   "valor_brl": 4696000
+  },
+  {
+   "nome": "Samuel Xavier",
+   "idade": 36,
+   "posicao": "D (R)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 800000,
+   "valor_brl": 4696000
+  },
+  {
+   "nome": "Ignácio",
+   "idade": 29,
+   "posicao": "D (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 1500000,
+   "valor_brl": 8805000
+  },
+  {
+   "nome": "Thiago Silva",
+   "idade": 42,
+   "posicao": "D (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 700000,
+   "valor_brl": 4109000
+  },
+  {
+   "nome": "Guilherme Arana",
+   "idade": 29,
+   "posicao": "D, M (L)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 3600000,
+   "valor_brl": 21132000
+  },
+  {
+   "nome": "Yago Ferreira",
+   "idade": 25,
+   "posicao": "M (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 500000,
+   "valor_brl": 2935000
+  },
+  {
+   "nome": "Hércules",
+   "idade": 25,
+   "posicao": "M, DM (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 9900000,
+   "valor_brl": 58113000
+  },
+  {
+   "nome": "Martinelli",
+   "idade": 24,
+   "posicao": "DM (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 12500000,
+   "valor_brl": 73375000
+  },
+  {
+   "nome": "Otávio",
+   "idade": 32,
+   "posicao": "DM, M (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 900000,
+   "valor_brl": 5283000
+  },
+  {
+   "nome": "Ganso",
+   "idade": 36,
+   "posicao": "AM, M (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 300000,
+   "valor_brl": 1761000
+  },
+  {
+   "nome": "Alisson",
+   "idade": 33,
+   "posicao": "M, DM (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 700000,
+   "valor_brl": 4109000
+  },
+  {
+   "nome": "Jefferson Savarino",
+   "idade": 29,
+   "posicao": "M (CL), AM (C)",
+   "nacionalidade": "Venezuela",
+   "valor_eur": 4300000,
+   "valor_brl": 25241000
+  },
+  {
+   "nome": "Luciano Acosta",
+   "idade": 32,
+   "posicao": "AM, M (C)",
+   "nacionalidade": "Argentina",
+   "valor_eur": 1900000,
+   "valor_brl": 11153000
+  },
+  {
+   "nome": "Nonato",
+   "idade": 28,
+   "posicao": "M, DM (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 1200000,
+   "valor_brl": 7044000
+  },
+  {
+   "nome": "Riquelme",
+   "idade": 19,
+   "posicao": "M (R)",
+   "nacionalidade": "Brazil",
+   "valor_eur": null,
+   "valor_brl": null
+  },
+  {
+   "nome": "Yeferson Soteldo",
+   "idade": 29,
+   "posicao": "F (L), M (RL)",
+   "nacionalidade": "Venezuela",
+   "valor_eur": 2200000,
+   "valor_brl": 12914000
+  },
+  {
+   "nome": "Agustín Canobbio",
+   "idade": 28,
+   "posicao": "F, M, AM (R)",
+   "nacionalidade": "Uruguay",
+   "valor_eur": 2500000,
+   "valor_brl": 14675000
+  },
+  {
+   "nome": "Kevin Serna",
+   "idade": 28,
+   "posicao": "M (RL)",
+   "nacionalidade": "Colombia",
+   "valor_eur": null,
+   "valor_brl": null
+  },
+  {
+   "nome": "Germán Cano",
+   "idade": 38,
+   "posicao": "F (C)",
+   "nacionalidade": "Argentina",
+   "valor_eur": 400000,
+   "valor_brl": 2348000
+  },
+  {
+   "nome": "Hulk",
+   "idade": 40,
+   "posicao": "F (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 1100000,
+   "valor_brl": 6457000
+  },
+  {
+   "nome": "John Kennedy",
+   "idade": 24,
+   "posicao": "F, M (C)",
+   "nacionalidade": "Brazil",
+   "valor_eur": 5500000,
+   "valor_brl": 32285000
+  },
+  {
+   "nome": "Rodrigo Castillo",
+   "idade": 27,
+   "posicao": "F (C)",
+   "nacionalidade": "Argentina",
+   "valor_eur": 2000000,
+   "valor_brl": 11740000
+  }
+ ]
+}
