@@ -27,21 +27,33 @@ async function getLeagueTeams(leagueSlug, leagueId) {
   const season = $('select[name="saison_id"] option[selected]').text().trim() || '2024';
 
   const teams = [];
-  $('table.items tbody tr').each((_, row) => {
+
+  // A tabela de times da liga tem linhas com exatamente uma célula com link para /startseite/verein/
+  $('table.items').first().find('tbody tr').each((_, row) => {
     const $row = $(row);
-    const nameEl = $row.find('td.hauptlink a').first();
+
+    // Filtra apenas linhas de times (href contém /startseite/verein/)
+    const nameEl = $row.find('td a[href*="/startseite/verein/"]').first();
     const name = nameEl.text().trim();
     const href = nameEl.attr('href') || '';
     if (!name || !href) return;
 
-    const parts = href.split('/');
-    const teamSlug = parts[1] || null;
-    const teamId = parts[parts.length - 1] || null;
+    // Extrai slug e id do href: /slug/startseite/verein/ID/saison_id/YYYY
+    const hrefParts = href.split('/');
+    const teamSlug = hrefParts[1] || null;
+    const vereinIdx = hrefParts.indexOf('verein');
+    const teamId = vereinIdx !== -1 ? hrefParts[vereinIdx + 1] : null;
+    if (!teamId) return;
 
-    const squadSize = $row.find('td.zentriert').eq(0).text().trim();
-    const avgAge = $row.find('td.zentriert').eq(1).text().trim();
-    const foreigners = $row.find('td.zentriert').eq(2).text().trim();
-    const avgValue = $row.find('td.rechts').text().trim();
+    const tds = $row.find('td');
+    const squadSize = tds.filter('.zentriert').eq(0).text().trim();
+    const avgAge = tds.filter('.zentriert').eq(1).text().trim();
+    const foreigners = tds.filter('.zentriert').eq(2).text().trim();
+
+    // Valor médio e total ficam em td.rechts — pega somente o primeiro número limpo
+    const valueTexts = tds.filter('.rechts').map((_, el) => $(el).text().trim()).get();
+    const avgValue = valueTexts[0] || null;
+    const totalValue = valueTexts[1] || null;
 
     teams.push({
       id: teamId,
@@ -50,8 +62,9 @@ async function getLeagueTeams(leagueSlug, leagueId) {
       squad_size: squadSize ? parseInt(squadSize) : null,
       average_age: avgAge ? parseFloat(avgAge.replace(',', '.')) : null,
       foreigners: foreigners ? parseInt(foreigners) : null,
-      average_market_value: avgValue || null,
-      url: `${BASE_URL}${href}`,
+      average_market_value: avgValue,
+      total_market_value: totalValue,
+      url: `${BASE_URL}/${teamSlug}/startseite/verein/${teamId}`,
     });
   });
 
