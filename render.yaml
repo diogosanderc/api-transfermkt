@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: api-transfermkt
+    runtime: node
+    buildCommand: npm install && npx puppeteer browsers install chrome
+    startCommand: npm start
+    envVars:
+      - key: PUPPETEER_CACHE_DIR
+        value: /opt/render/.cache/puppeteer
