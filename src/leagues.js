@@ -28,32 +28,31 @@ async function getLeagueTeams(leagueSlug, leagueId) {
 
   const teams = [];
 
-  // A tabela de times da liga tem linhas com exatamente uma célula com link para /startseite/verein/
+  // Tabela de times é a primeira table.items da página (index 1 no HTML)
+  // Cada linha de time tem um link com href="/slug/startseite/verein/ID/..."
   $('table.items').first().find('tbody tr').each((_, row) => {
     const $row = $(row);
+    const tds = $row.find('td');
 
-    // Filtra apenas linhas de times (href contém /startseite/verein/)
-    const nameEl = $row.find('td a[href*="/startseite/verein/"]').first();
+    // Pega o link do nome do time (td.hauptlink a)
+    const nameEl = $row.find('td.hauptlink a').first();
     const name = nameEl.text().trim();
     const href = nameEl.attr('href') || '';
-    if (!name || !href) return;
+    if (!name || !href || !href.includes('/verein/')) return;
 
-    // Extrai slug e id do href: /slug/startseite/verein/ID/saison_id/YYYY
+    // href exemplo: /se-palmeiras-sao-paulo/startseite/verein/1023/saison_id/2025
     const hrefParts = href.split('/');
     const teamSlug = hrefParts[1] || null;
     const vereinIdx = hrefParts.indexOf('verein');
     const teamId = vereinIdx !== -1 ? hrefParts[vereinIdx + 1] : null;
     if (!teamId) return;
 
-    const tds = $row.find('td');
-    const squadSize = tds.filter('.zentriert').eq(0).text().trim();
-    const avgAge = tds.filter('.zentriert').eq(1).text().trim();
-    const foreigners = tds.filter('.zentriert').eq(2).text().trim();
-
-    // Valor médio e total ficam em td.rechts — pega somente o primeiro número limpo
-    const valueTexts = tds.filter('.rechts').map((_, el) => $(el).text().trim()).get();
-    const avgValue = valueTexts[0] || null;
-    const totalValue = valueTexts[1] || null;
+    // Colunas: Squad, Ø Age, Foreigners, Ø MV, Total MV
+    const squadSize = tds.eq(2).text().trim();
+    const avgAge    = tds.eq(3).text().trim();
+    const foreigners = tds.eq(4).text().trim();
+    const avgValue   = tds.eq(5).text().trim();
+    const totalValue = tds.eq(6).text().trim();
 
     teams.push({
       id: teamId,
@@ -62,8 +61,8 @@ async function getLeagueTeams(leagueSlug, leagueId) {
       squad_size: squadSize ? parseInt(squadSize) : null,
       average_age: avgAge ? parseFloat(avgAge.replace(',', '.')) : null,
       foreigners: foreigners ? parseInt(foreigners) : null,
-      average_market_value: avgValue,
-      total_market_value: totalValue,
+      average_market_value: avgValue || null,
+      total_market_value: totalValue || null,
       url: `${BASE_URL}/${teamSlug}/startseite/verein/${teamId}`,
     });
   });
