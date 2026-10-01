@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: api-transfermkt
-    runtime: node
-    buildCommand: npm install
-    startCommand: npm start
-    envVars:
-      - key: PUPPETEER_CACHE_DIR
-        value: /opt/render/.cache/puppeteer
