@@ -1,0 +1,9 @@
+{
+  "name": "ft-elenco",
+  "version": "1.0.0",
+  "description": "Baixa o elenco de times do footballtransfers.com em JSON (uso local)",
+  "type": "module",
+  "bin": { "ft": "./cli.js" },
+  "scripts": { "test": "node --test" },
+  "dependencies": { "cheerio": "^1.0.0" }
+}
